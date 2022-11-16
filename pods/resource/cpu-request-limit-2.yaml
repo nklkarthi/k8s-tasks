@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: cpu-demo-2
+  name: cpu-demo-2
+  namespace: cpu-example
+spec:
+  containers:
+  - image: vish/stress
+    name: cpu-demo-ctr-2
+    resources:
+      limits:
+        cpu: "10"
+      requests:
+        cpu: "5"
+    args:
+    - -cpus
+    - "2"
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
