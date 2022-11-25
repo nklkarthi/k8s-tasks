@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  AGE: "45"
+  GENDER: M
+  NAME: Karthikeyan
+  PLACE: SG
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: myconfig

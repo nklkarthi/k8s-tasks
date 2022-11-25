@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: webapp-color
+  name: webapp-color
+spec:
+  containers:
+  - envFrom:
+    - configMapRef: 
+        name: webapp-config 
+    image: kodekloud/webapp-color
+    name: webapp-color
+    ports:
+    - containerPort: 8080
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
