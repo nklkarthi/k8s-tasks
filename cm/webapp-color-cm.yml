@@ -6,6 +6,15 @@ metadata:
     run: webapp-color
   name: webapp-color
 spec:
+  tolerations:
+  - effect: "NoSchedule"
+    key: "app"
+    operator: "Equal"
+    value: "blue"
+  - effect: "NoExecute"
+    key: "app"
+    operator: "Equal"
+    value: "blue"
   containers:
   - envFrom:
     - configMapRef: 

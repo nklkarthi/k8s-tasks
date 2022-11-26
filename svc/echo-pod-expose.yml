@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: echo-pod
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: echo-pod
+  type: NodePort
+status:
+  loadBalancer: {}
+---
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: echo-pod
+  name: echo-pod
+spec:
+  containers:
+  - image: k8s.gcr.io/echoserver:1.4
+    name: echo-pod
+    ports:
+    - containerPort: 8080
+    resources: {}
+    securityContext:
+      privileged: true
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

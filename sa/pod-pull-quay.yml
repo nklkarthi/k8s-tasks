@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: pod-pull-quay
+  name: pod-pull-quay
+  namespace: dev
+spec:
+  serviceAccount: user1
+  containers:
+  - image: quay.io/nklkarthi/do180-custom-httpd:v1.0
+    name: quay
+  imagePullSecrets:
+  - name: quay
+  restartPolicy: Always
+status: {}

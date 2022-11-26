@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: simple-job
+spec:
+  completions: 3
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: alpine
+        name: simple-job
+        command: ["sleep"]
+        args: ["5"]
+        resources: {}
+      restartPolicy: Never
+status: {}
